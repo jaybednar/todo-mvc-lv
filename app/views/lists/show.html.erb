@@ -1,23 +1,25 @@
 <section class="todoapp">
   <header class="header">
     <h1><%= @list.name %></h1>
-    <input class="new-todo" placeholder="Add an item..." autofocus="">
+    <%= form_for([@list, @item]) do |f| %>
+    <%= f.text_field :description, :class => "new-todo", :placeholder => items_placeholder(@item) %>
+    <%= f.submit :style => "display: none" %>
+    <% end %>
+      
+    
   </header>
   <section class="main">
     <input class="toggle-all" type="checkbox">
     <label for="toggle-all">Mark all as complete</label>
+
     <ul class="todo-list">
-      <li>
-        <div class="view">
-          <label>Milk</label>
-        </div>
-      </li>
-      <li>
-        <div class="view">
-          <label>Cookies</label>
-        </div>
-      </li>
+      <%= render collection: @list.items, partial: 'items/item_li', as: :item %>     <!-- replaced the three lines below -->
+
+      <%# @list.items.each do |item| %>
+        <%#= render 'items/item_li', item: item %>
+      <%# end %>
     </ul>
+
   </section>
   <footer class="footer">
   </footer>
