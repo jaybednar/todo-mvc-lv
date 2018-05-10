@@ -22,3 +22,21 @@ Does it impact my URLS? '/lists/1' #
 # Step 3: Add Items to a List
 
 # Step Whatever: Fix Down Arrow on Make a List Form
+
+
+
+
+AUTHORIZATION:
+
+Owner  :   can delete the list
+
+Collaborator :  can add items 
+
+Guest   :   can view the list 
+
+
+shared_list 
+user_id         list_id             permission
+1                 1                      0   #=> Owner
+2									1											10		#=> Collaborator
+ 
